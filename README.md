@@ -147,7 +147,7 @@ npm run build
   <h3>Configurando o Backend</h3>
   <p>Acesse o diretório do backend:</p>
   <pre>
-    cd backend
+    cd back
   </pre>
   <p>Instale as dependências:</p>
   <pre>
@@ -161,7 +161,7 @@ npm run build
   <h3>Configurando o Frontend</h3>
   <p>Acesse o diretório do frontend:</p>
   <pre>
-    cd frontend
+    cd front
   </pre>
   <p>Instale as dependências:</p>
   <pre>
