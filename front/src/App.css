@@ -37,3 +37,83 @@ p {
 .btn-ativar:hover {
   background-color: #45a049;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estilização geral do container */
+.container {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  max-width: 400px;
+  margin: 30px auto; /* Aumentando a margem superior para melhor espaçamento */
+  text-align: center;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para profundidade */
+}
+
+/* Estilo do título */
+h1 {
+  font-size: 26px; /* Aumentando o tamanho da fonte */
+  color: #333;
+  margin-bottom: 15px; /* Espaçamento inferior */
+}
+
+/* Estilo dos parágrafos */
+p {
+  font-size: 18px;
+  margin: 10px 0;
+  line-height: 1.5; /* Aumentando o espaçamento entre linhas */
+}
+
+/* Estilo dos botões */
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #4CAF50; /* Cor verde */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s; /* Adicionando transição suave */
+}
+
+/* Efeito hover do botão */
+button:hover {
+  background-color: #45a049; /* Cor verde mais escura */
+}
+
+/* Estilo específico para login do Google */
+.google-login {
+  margin-top: 20px;
+}
+
+/* Adicionando um estilo para o texto do cookie */
+.cookie-text {
+  font-size: 14px; /* Texto menor para cookies */
+  color: #555; /* Cor mais suave */
+  margin-top: 10px;
+}
+
+/* Estilo de alerta ou erro */
+.alert {
+  color: red; /* Texto vermelho para alertas */
+  margin: 10px 0;
+}
+
+/* Estilo para mensagens de sucesso */
+.success {
+  color: green; /* Texto verde para mensagens de sucesso */
+  margin: 10px 0;
+}

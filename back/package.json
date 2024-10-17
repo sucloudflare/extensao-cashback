@@ -1,18 +1,19 @@
 {
-  "name": "back",
+  "name": "cashback-backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Backend para extensão de cashback.",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cashback-backend": "file:",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "google-auth-library": "^7.0.2",
+    "sqlite3": "^5.1.7"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "cookie-parser": "^1.4.7",
-    "cors": "^2.8.5",
-    "express": "^4.21.1",
-    "google-auth-library": "^9.14.2"
-  }
+  "license": "ISC"
 }

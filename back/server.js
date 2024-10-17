@@ -1,59 +1,28 @@
 // server.js
 const express = require('express');
-const cookieParser = require('cookie-parser');
-const { OAuth2Client } = require('google-auth-library');
+const bodyParser = require('body-parser');
+const db = require('./database'); // Importa o arquivo do banco de dados
+
 const app = express();
 const PORT = 5000;
 
-// Cliente OAuth2 do Google
-const client = new OAuth2Client('SUA_CLIENT_ID_GOOGLE');
+app.use(bodyParser.json());
 
-// Middleware para parsing JSON e cookies
-app.use(express.json());
-app.use(cookieParser());
+// Rota para solicitar cashback
+app.post('/api/cashback', (req, res) => {
+    const { ip, userToken } = req.body; // Supondo que o amount seja definido de alguma forma
+    const amount = 10.00; // Exemplo de valor de cashback
 
-// Simulando um banco de dados de sessões
-const validSessions = {
-  'session123': { user: 'Edson', cashbackEligible: true }
-};
-
-// Valida o token Google e o IP
-async function verifyGoogleToken(token) {
-  const ticket = await client.verifyIdToken({
-    idToken: token,
-    audience: 'SUA_CLIENT_ID_GOOGLE',
-  });
-  const payload = ticket.getPayload();
-  return payload; // Retorna informações do usuário
-}
-
-// Rota de cashback
-app.post('/api/cashback', async (req, res) => {
-  const { ip, cookie, googleToken } = req.body;
-
-  try {
-    // Verificar o token Google
-    const userInfo = await verifyGoogleToken(googleToken);
-    console.log('Usuário autenticado:', userInfo);
-
-    // Validar cookie de sessão
-    if (!cookie || !validSessions[cookie]) {
-      return res.status(401).json({ message: 'Usuário não autenticado ou sessão inválida' });
-    }
-
-    // Verificar se o usuário pode receber cashback
-    const userSession = validSessions[cookie];
-    if (userSession.cashbackEligible) {
-      return res.status(200).json({ message: `Cashback processado para o usuário ${userInfo.name}` });
-    } else {
-      return res.status(403).json({ message: 'Usuário não elegível para cashback' });
-    }
-  } catch (error) {
-    return res.status(401).json({ message: 'Token Google inválido', error });
-  }
+    const sql = `INSERT INTO cashback_requests (ip, user_token, amount) VALUES (?, ?, ?)`;
+    db.run(sql, [ip, userToken, amount], function (err) {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        res.status(201).json({ id: this.lastID, amount });
+    });
 });
 
-// Inicializar o servidor
+// Inicia o servidor
 app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
+    console.log(`Servidor rodando na porta ${PORT}`);
 });
