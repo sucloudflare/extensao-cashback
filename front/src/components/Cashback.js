@@ -1,4 +1,3 @@
-// src/components/Cashback.js
 import React, { useEffect, useState } from 'react';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 
@@ -6,7 +5,7 @@ const Cashback = () => {
   const [ipAddress, setIpAddress] = useState('');
   const [cookie, setCookie] = useState('');
   const [user, setUser] = useState(null);
-  const [cashbackAmount, setCashbackAmount] = useState(0); // Adicionando estado para armazenar cashback
+  const [cashbackAmount, setCashbackAmount] = useState(0);
 
   // Função para capturar o IP
   const fetchIpAddress = async () => {
@@ -33,7 +32,6 @@ const Cashback = () => {
 
   const handleGoogleLoginSuccess = (response) => {
     const token = response.credential;
-    // Aqui você pode enviar o token para o backend para autenticação
     setUser({ token });
   };
 
@@ -47,7 +45,6 @@ const Cashback = () => {
       return;
     }
 
-    // Aqui você pode implementar a lógica para solicitar cashback
     const data = {
       ip: ipAddress,
       cookie,
@@ -59,14 +56,14 @@ const Cashback = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${user.token}`, // Incluindo o token no cabeçalho
+          'Authorization': `Bearer ${user.token}`,
         },
         body: JSON.stringify(data),
       });
 
       if (response.ok) {
         const result = await response.json();
-        setCashbackAmount(result.amount); // Supondo que o backend retorna a quantia de cashback
+        setCashbackAmount(result.amount);
         console.log("Cashback solicitado com sucesso:", result);
       } else {
         console.error("Erro ao solicitar cashback:", response.statusText);
@@ -79,8 +76,13 @@ const Cashback = () => {
   const handleDeleteCookie = () => {
     document.cookie = "userSession=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     setCookie('');
-    setUser(null); // Limpa o usuário ao deletar o cookie
+    setUser(null);
     console.log("Cookie deletado.");
+  };
+
+  const handleViewOffers = () => {
+    // Redireciona para a página de ofertas ou abre um modal
+    window.location.href = '/ofertas'; // Altere este caminho conforme necessário
   };
 
   return (
@@ -89,7 +91,7 @@ const Cashback = () => {
         <h1>Cashback</h1>
         <p>Seu endereço IP: {ipAddress}</p>
         <p>Cookie: {cookie}</p>
-        {cashbackAmount > 0 && <p>Seu Cashback: R$ {cashbackAmount.toFixed(2)}</p>} {/* Exibe o valor do cashback */}
+        {cashbackAmount > 0 && <p>Seu Cashback: R$ {cashbackAmount.toFixed(2)}</p>}
         {!user ? (
           <div className="google-login">
             <GoogleLogin
@@ -104,6 +106,9 @@ const Cashback = () => {
             </button>
             <button onClick={handleDeleteCookie}>
               Deletar Cookie
+            </button>
+            <button onClick={handleViewOffers}>
+              Ver Ofertas
             </button>
           </>
         )}
