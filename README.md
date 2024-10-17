@@ -20,8 +20,8 @@
   <h3>1. Clonar o repositório</h3>
     <pre>
 bash
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
-cd nome-do-repositorio
+git clone https://github.com/sucloudflare/extensao-cashback/tree/main
+cd extensao-cashback
     </pre>
 
   <h3>2. Instalar as dependências</h3>
