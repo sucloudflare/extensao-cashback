@@ -1,6 +1,8 @@
   <h1>Cashback Extension</h1>
     <p>Este é um projeto de uma extensão de cashback desenvolvida com <strong>React</strong> que permite que usuários recebam cashback em compras realizadas em lojas parceiras. A extensão é inspirada em sistemas de cashback como o Méliuz, permitindo fácil integração com diversas lojas e fornecendo uma interface amigável ao usuário.</p>
-
+<br>
+<img src='a.PNG'alt='legal'>
+<br>
   <h2>Como funciona</h2>
     <p>A extensão funciona como uma interface que exibe as lojas parceiras e o cashback disponível para o usuário. A lógica de cashback é calculada com base nas compras feitas nas lojas parceiras cadastradas, e o usuário pode ver as melhores opções diretamente através da interface.</p>
 
