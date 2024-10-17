@@ -1,56 +1,65 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f7f8;
-    margin: 0;
-    padding: 20px;
-    color: #333;
-  }
-  
-  h1 {
-    color: #2c3e50;
-    text-align: center;
-  }
-  
-  .container {
-    max-width: 400px;
-    margin: auto;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-  }
-  
-  button {
-    background-color: #27ae60; /* Verde */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s, transform 0.3s;
-  }
-  
-  button:hover {
-    background-color: #219653; /* Verde escuro */
-    transform: translateY(-2px);
-  }
-  
-  .google-login {
-    margin: 20px 0;
-    display: flex;
-    justify-content: center;
-  }
-  
-  p {
-    text-align: center;
-  }
-  
-  .card {
-    background-color: #ecf0f1;
-    padding: 15px;
-    border-radius: 8px;
-    margin-top: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo escurecido para destacar o popup */
+}
+
+.popup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ocupa a altura total da tela */
+}
+
+.popup-card {
+  width: 350px; /* Largura do cartão */
+  padding: 20px; /* Espaçamento interno */
+  border-radius: 10px; /* Cantos arredondados */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra do cartão */
+  background-color: #ffffff; /* Cor de fundo */
+  text-align: center; /* Centraliza o texto */
+}
+
+.cashback-image {
+  width: 100%; /* Imagem ocupa toda a largura do cartão */
+  height: auto; /* Altura automática para manter proporção */
+  border-radius: 10px; /* Cantos arredondados da imagem */
+  margin-bottom: 15px; /* Margem abaixo da imagem */
+}
+
+h1 {
+  font-size: 22px; /* Tamanho da fonte do título */
+  color: #333; /* Cor do texto */
+  margin-bottom: 10px; /* Margem abaixo do título */
+}
+
+p {
+  font-size: 14px; /* Tamanho da fonte do parágrafo */
+  color: #666; /* Cor do texto */
+  margin-bottom: 20px; /* Margem abaixo do parágrafo */
+}
+
+.action-button {
+  padding: 10px 15px; /* Espaçamento interno do botão */
+  font-size: 16px; /* Tamanho da fonte do botão */
+  color: #fff; /* Cor do texto do botão */
+  background-color: #007bff; /* Cor de fundo do botão */
+  border: none; /* Remove bordas padrão */
+  border-radius: 5px; /* Cantos arredondados do botão */
+  cursor: pointer; /* Cursor de mão ao passar sobre o botão */
+  margin: 15px;
+  transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+}
+
+.action-button:hover {
+  background-color: #0056b3; /* Cor ao passar o mouse */
+}
+
+.cashback-image {
+  width: 110px; /* Ajuste a largura conforme necessário */
+  height: auto; /* Mantém a proporção original */
+  max-width: 100%; /* Garante que a imagem não ultrapasse o contêiner */
+  display: block; /* Faz a imagem ser um bloco (opcional) */
+  margin: 0 auto; /* Centraliza a imagem se necessário */
+}
