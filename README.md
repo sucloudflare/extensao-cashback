@@ -90,4 +90,98 @@ npm run build
     </ol>
 </div>
 
-</body>
+<h1>Atualização</h1>
+
+
+ <h1>Extensão de Cashback</h1>
+  <p>
+    Este projeto é uma extensão de cashback que captura o endereço IP, cookies do usuário, e autenticação via conta Google para validar a elegibilidade ao cashback. O sistema consiste em um frontend desenvolvido em React e um backend em Node.js com Express, onde a validação da autenticação ocorre com base nos cookies, IP e token Google do usuário.
+  </p>
+
+  <h2>Tecnologias Utilizadas</h2>
+  <ul>
+    <li><strong>Frontend:</strong> React, JavaScript</li>
+    <li><strong>Backend:</strong> Node.js, Express, Cookie-Parser, Cors</li>
+    <li><strong>Autenticação:</strong> OAuth2 Google</li>
+    <li><strong>API Externa:</strong> ipify para captura do IP</li>
+  </ul>
+
+  <h2>Funcionalidades</h2>
+  <ul>
+    <li><strong>Captura do IP do Usuário:</strong> O frontend captura o IP usando a API pública do ipify.</li>
+    <li><strong>Validação de Cookies:</strong> Cookies de sessão são armazenados e enviados ao backend para validação.</li>
+    <li><strong>Autenticação via Google:</strong> O backend valida o token da conta Google, junto com o IP e os cookies, para determinar se o usuário está elegível para receber o cashback.</li>
+  </ul>
+
+  <h2>Estrutura do Projeto</h2>
+  <pre>
+    extensao-cashback/
+    ├── backend/         # Backend em Node.js
+    │   ├── node_modules/
+    │   ├── package.json
+    │   ├── server.js    # Servidor Express com autenticação por IP, cookies e conta Google
+    ├── frontend/        # Frontend em React
+    │   ├── public/
+    │   ├── src/
+    │   │   ├── components/
+    │   │   │   ├── Cashback.js  # Componente que captura IP, cookies e autentica via Google
+    ├── node_modules/
+    ├── package.json
+    └── README.md
+  </pre>
+
+  <h2>Instalação e Execução</h2>
+
+  <h3>Requisitos</h3>
+  <ul>
+    <li>Node.js instalado</li>
+    <li>NPM ou Yarn para gerenciamento de pacotes</li>
+  </ul>
+
+  <h3>Clonando o Repositório</h3>
+  <pre>
+    git clone https://github.com/seu-usuario/extensao-cashback.git
+    cd extensao-cashback
+  </pre>
+
+  <h3>Configurando o Backend</h3>
+  <p>Acesse o diretório do backend:</p>
+  <pre>
+    cd backend
+  </pre>
+  <p>Instale as dependências:</p>
+  <pre>
+    npm install
+  </pre>
+  <p>Inicie o servidor backend:</p>
+  <pre>
+    node server.js
+  </pre>
+
+  <h3>Configurando o Frontend</h3>
+  <p>Acesse o diretório do frontend:</p>
+  <pre>
+    cd frontend
+  </pre>
+  <p>Instale as dependências:</p>
+  <pre>
+    npm install
+  </pre>
+  <p>Inicie o servidor frontend:</p>
+  <pre>
+    npm start
+  </pre>
+
+  <h2>Testando o Projeto</h2>
+  <p>
+    Ao iniciar o frontend, o componente <code>Cashback.js</code> irá capturar o endereço IP do usuário, o cookie de sessão, e também permitirá a autenticação via Google.
+    Ao clicar no botão "Receber Cashback", esses dados serão enviados ao backend.
+    O backend processa as informações (IP, cookies e token do Google) e retorna uma resposta com a elegibilidade ou não do usuário para receber o cashback.
+  </p>
+
+  <h2>Considerações Finais</h2>
+  <p>
+    <strong>Segurança:</strong> Para um ambiente de produção, recomenda-se o uso de HTTPS e uma autenticação ainda mais robusta, como OAuth2 completo ou JWT.
+    <br>
+    <strong>Melhorias:</strong> A validação de IP, cookies e Google Auth pode ser aprimorada para ambientes com múltiplas camadas de segurança.
+  </p>
